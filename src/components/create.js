@@ -25,6 +25,11 @@ export class Create extends React.Component {
         ${this.state.title},
         ${this.state.cover},
         ${this.state.author}`);
+        this.setState ({
+            title:'',
+            cover:'',
+            author:''
+        })
         
     }
     
