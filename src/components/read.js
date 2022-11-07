@@ -9,9 +9,9 @@ export class Read extends React.Component {
 
     componentDidMount() { // (lifecycle method) method runs after the component output has been rendered to the DOM.
 
-        axios.get("https://jsonblob.com/api/jsonblob/1027219693823606784")
+        axios.get("http://localhost:4000/api/books")
             .then((response) => {  //Gets the reponse from the link above and retrieves the data.
-                this.setState({ books: response.data }) //Saves the data in the books var using the setState function.
+                this.setState({ books: response.data.mybooks }) //Saves the data in the books var using the setState function.
             })
             .catch((error)=>{
                 console.log("error");
