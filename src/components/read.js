@@ -11,7 +11,7 @@ export class Read extends React.Component {
 
         axios.get("http://localhost:4000/api/books")
             .then((response) => {  //Gets the reponse from the link above and retrieves the data.
-                this.setState({ books: response.data.mybooks }) //Saves the data in the books var using the setState function.
+                this.setState({ books: response.data }) //Saves the data in the books var using the setState function
             })
             .catch((error)=>{
                 console.log("error");

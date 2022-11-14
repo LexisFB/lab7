@@ -1,6 +1,9 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 export class Create extends React.Component {
@@ -63,8 +66,10 @@ export class Create extends React.Component {
     render(){
         return (
             <div>
-           
-           <form onSubmit={this.handleSubmit}>
+                 <Container>
+      <Row>
+        <Col></Col>
+        <Col xs={6}> <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                         <label>Add Book Title: </label>
                         <input type="text"
@@ -94,7 +99,12 @@ export class Create extends React.Component {
 
 
                 <input type="submit" value="Add book" />
-            </form>
+            </form></Col>
+        <Col></Col>
+      </Row>
+      </Container>
+           
+          
                 
              
             </div>

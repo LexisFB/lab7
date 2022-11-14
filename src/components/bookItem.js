@@ -10,11 +10,11 @@ export class BookItem extends React.Component {
             <div>
                 
                 <Card className="mx-5" border="dark" style={{ width: '18EM' }}>
-                <Card.Img variant="top" src={this.props.book.thumbnailUrl} />   {/* prints out the data of each individual item from the object array*/}
+                <Card.Img variant="top" src={this.props.book.cover} />   {/* prints out the data of each individual item from the object array*/}
                 <Card.Body>
                     <Card.Title>{this.props.book.title}</Card.Title>
                     <Card.Text>
-                    {this.props.book.authors[0]}
+                    {this.props.book.author}
                     </Card.Text>
                      
                 </Card.Body>

@@ -21,7 +21,7 @@ export class Cnav extends React.Component {
             <Router>
                 <Navbar bg="dark" variant="dark">
                 <Container>
-                <Nav className="me-auto">
+                <Nav className="me-auto ">
                     <Nav.Link href="/">Home</Nav.Link> 
                     <Nav.Link href="read">Read</Nav.Link>
                     <Nav.Link href="create">Create</Nav.Link>
