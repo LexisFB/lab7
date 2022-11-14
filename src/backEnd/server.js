@@ -22,7 +22,7 @@ const mongoose = require('mongoose');
 
 main().catch(err => console.log(err));
 
-//connection to our database
+//connection to the database
 async function main() {
   await mongoose.connect('mongodb+srv://webadmin:DataRep2022@datarep.wmalsu7.mongodb.net/?retryWrites=true&w=majority');
   
@@ -115,6 +115,7 @@ app.get('/api/books', (req, res) =>{
     // })
 })
 
+//filtering books by ID
 app.get('/api/book/:id',(req,res) => {
     console.log(req.params.id);
     bookModel.findById(req.params.id, (err, data)=>{
