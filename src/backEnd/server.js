@@ -17,7 +17,7 @@ const cors = require('cors');
     next();
 });
 
-// getting-started.js
+// 
 const mongoose = require('mongoose');
 
 main().catch(err => console.log(err));
@@ -29,15 +29,14 @@ async function main() {
   // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
 }
 
-//Creating schema for our database
+//Creating/defining schema for our database
 const bookSchema = new mongoose.Schema({
   title:  String, // String is shorthand for {type: String}
   author: String,
   cover:   String,
 });
 
-
-//To use our schema definition, we need to convert our blogSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema):
+//To use our schema definition, we need to convert our bookSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema):
 const bookModel= mongoose.model('book', bookSchema);
 
 // parse app/x-ww-form-urlencoded 
@@ -58,61 +57,16 @@ app.post('/api/books', (req, res) =>{
 })
 
 
-app.post('/name', (req, res) =>{
-    console.log(req.body);
-    res.send ('Hello ' + req.body.fName + ' ' + req.body.lName)
-})
-
 app.get('/', (req, res) => { //req reserver word for request, res stands for respond 
   res.send('Hello World!')  // when web client send a get request the server will resport with this hello world. 
 })
 
-
+//requesting all the books on the database using the .find function for the model we created.
 app.get('/api/books', (req, res) =>{
-
-    // const  books = [
-    //         {
-    //         "title": "Learn Git in a Month of Lunches",
-    //         "isbn": "1617292419",
-    //         "pageCount": 0,
-    //         "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/umali.jpg",
-    //         "status": "MEAP",
-    //         "authors": ["Rick Umali"],
-    //         "categories": []
-    //         },
-    //         {
-    //         "title": "MongoDB in Action, Second Edition",
-    //         "isbn": "1617291609",
-    //         "pageCount": 0,
-    //         "thumbnailUrl":"https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/banker2.jpg",
-    //         "status": "MEAP",
-    //         "authors": [
-    //         "Kyle Banker",
-    //         "Peter Bakkum",
-    //         "Tim Hawkins",
-    //         "Shaun Verch",
-    //         "Douglas Garrett"
-    //         ],
-    //         "categories": []
-    //         },
-    //         {
-    //         "title": "Getting MEAN with Mongo, Express, Angular, and Node",
-    //         "isbn": "1617292036",
-    //         "pageCount": 0,
-    //         "thumbnailUrl":"https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/sholmes.jpg",
-    //         "status": "MEAP",
-    //         "authors": ["Simon Holmes"],
-    //         "categories": []
-    //         }
-    //     ];
-
      bookModel.find((err, data )=>{
         console.log(data);
         res.json(data);
     })
-    // res.status(200).json({
-    //     mybooks:books
-    // })
 })
 
 //filtering books by ID
